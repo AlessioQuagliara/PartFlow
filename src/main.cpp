@@ -1,4 +1,7 @@
 #include "crow.h"
+#include <iostream>
+#include <cstdlib>
+#include <pqxx/pqxx>
 
 int main(){
 
@@ -10,8 +13,8 @@ int main(){
     });
 
     CROW_ROUTE(app, "/login")([](){
-        auto page = crow::mustache::load_text("login.html");
-        return page;
+        crow::mustache::context ctx;
+        return crow::mustache::load("login.html").render(ctx);
     });
 
     app.port(8080).multithreaded().run();
