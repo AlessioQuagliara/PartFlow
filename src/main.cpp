@@ -1,7 +1,4 @@
 #include "crow.h"
-#include <iostream>
-#include <cstdlib>
-#include <pqxx/pqxx>
 
 int main(){
 
